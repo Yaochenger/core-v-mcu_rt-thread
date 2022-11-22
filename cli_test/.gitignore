@@ -1,0 +1,6 @@
+.settings/language.settings.xml
+openocd.log
+*.o
+*.su
+uart_test
+/Default/

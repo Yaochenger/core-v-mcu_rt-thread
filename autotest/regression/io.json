@@ -1,0 +1,6 @@
+{
+	"io" : [
+		{">console"		: "io setmux 11 2\r\n"}
+	]
+	
+}

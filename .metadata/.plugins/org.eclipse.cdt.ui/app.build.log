@@ -1,0 +1,8 @@
+16:24:34 **** Incremental Build of configuration Default for project app ****
+make all 
+/home/wangshun/gcc_riscv32/bin/riscv32-unknown-elf-size --format=berkeley cli_test
+   text	   data	    bss	    dec	    hex	filename
+  23829	  66692	   5576	  96097	  17761	cli_test
+
+16:24:34 Build Finished. 0 errors, 0 warnings. (took 77ms)
+

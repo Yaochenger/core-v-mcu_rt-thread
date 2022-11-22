@@ -1,0 +1,7 @@
+18:40:21 **** Incremental Build of configuration Default for project cli_test ****
+make all 
+default_flags.mk:35: *** "FREERTOS_PROJ_ROOT is unset. Point it to this project's root directory."。 停止。
+"make all" terminated with exit code 2. Build might be incomplete.
+
+18:40:21 Build Failed. 1 errors, 0 warnings. (took 79ms)
+

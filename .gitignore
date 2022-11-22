@@ -1,0 +1,8 @@
+*~
+*.swp
+autotest/TestOutputs/*
+autotest/RunOnEmulOrSimul/TestOutputs/*
+cli_test/logfile.txt
+*.mem
+*.srec
+cli_test/Default/*

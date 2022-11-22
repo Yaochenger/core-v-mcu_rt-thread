@@ -1,0 +1,21 @@
+!SESSION 2022-11-18 17:37:00.879 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=17
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=zh_CN
+Framework arguments:  -clearPersistedState
+Command-line arguments:  -os linux -ws gtk -arch x86_64 -clearPersistedState
+
+!ENTRY org.eclipse.core.resources 4 77 2022-11-18 17:38:04.803
+!MESSAGE Invalid project description.
+!SUBENTRY 1 unknown 0 0 2022-11-18 17:38:04.803
+!MESSAGE OK
+!SUBENTRY 1 org.eclipse.core.resources 4 77 2022-11-18 17:38:04.804
+!MESSAGE /home/wangshun/plct_cli/cli_test/cli_test/app overlaps the workspace location: /home/wangshun/plct_cli/cli_test/cli_test/app
+
+!ENTRY org.eclipse.core.resources 4 77 2022-11-18 17:38:53.105
+!MESSAGE Invalid project description.
+!SUBENTRY 1 unknown 0 0 2022-11-18 17:38:53.105
+!MESSAGE OK
+!SUBENTRY 1 org.eclipse.core.resources 4 77 2022-11-18 17:38:53.105
+!MESSAGE /home/wangshun/plct_cli/cli_test/cli_test/app overlaps the workspace location: /home/wangshun/plct_cli/cli_test/cli_test/app

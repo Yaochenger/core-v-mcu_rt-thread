@@ -1,0 +1,16 @@
+eclipse.preferences.version=1
+gdb.client.commands=set mem inaccessible-by-default off
+gdb.client.doStart=true
+gdb.client.executable=/home/wangshun/OpenHW/CORE-V-SDKv0.0.0.4/toolchain/corev-openhw-gcc/bin/riscv32-corev-elf-gdb
+gdb.client.other=
+gdb.openocd.doDebugInRam=false
+gdb.openocd.doInitialReset=true
+gdb.openocd.doPreRunReset=true
+gdb.openocd.enableSemihosting=false
+gdb.openocd.init.other=
+gdb.openocd.initialReset.type=init
+gdb.openocd.preRun.other=
+gdb.openocd.preRunReset.type=halt
+gdb.server.doStart=false
+gdb.server.executable=${eclipse_home}/../openocd/bin
+gdb.server.other=
