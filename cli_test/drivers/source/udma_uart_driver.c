@@ -27,6 +27,8 @@
 #include "semphr.h"
 #include "target/core-v-mcu/include/core-v-mcu-config.h"
 #include "drivers/include/udma_uart_driver.h"
+#include "rtthread.h"
+#include "ringbuffer.h"
 
 SemaphoreHandle_t  uart_semaphores_rx[N_UART];
 SemaphoreHandle_t  uart_semaphores_tx[N_UART];
@@ -35,7 +37,29 @@ static int u1rdptr, u1wrptr, u0rdptr,u0wrptr;
 static UdmaUart_t *puart0 = (UdmaUart_t*)(UDMA_CH_ADDR_UART);
 static UdmaUart_t *puart1 = (UdmaUart_t*)(UDMA_CH_ADDR_UART + UDMA_CH_SIZE);
 
+uint16_t outdata(uint8_t uart_id, uint16_t write_len, uint8_t* write_buffer) {
+	UdmaUart_t*				puart = (UdmaUart_t*)(UDMA_CH_ADDR_UART + uart_id * UDMA_CH_SIZE);
+
+	while (puart->status_b.tx_busy) {  // ToDo: Why is this necessary?  Thought the semaphore should have protected
+	}
+
+	puart->tx_saddr = (uint32_t)write_buffer;
+	puart->tx_size = write_len;
+	puart->tx_cfg_b.en = 1; //enable the transfer
+
+	return 0;
+}
+
+// ringbuffer  
+#define UART_RX_BUFFER_LEN 16
+rt_uint8_t uart_rxbuffer[UART_RX_BUFFER_LEN]={0};
+struct rt_ringbuffer uart_rxTCB;
+struct rt_semaphore  shell_rx_semaphore;
+
+
+char n_data[]="\r\n";
 void uart_rx_isr (void *id){
+	rt_interrupt_enter();
 	if (id == 6) {
 		while (*(int*)0x1a102130) {
 			u1buffer[u1wrptr++] = puart1->data_b.rx_data & 0xff;
@@ -44,10 +68,16 @@ void uart_rx_isr (void *id){
 	}
 	if (id == 2) {
 		while (puart0->valid) {
-			u0buffer[u0wrptr++] = puart0->data_b.rx_data & 0xff;
-			u0wrptr &= 0x7f;
+			//u0buffer[u0wrptr++] = puart0->data_b.rx_data & 0xff;
+			//u0wrptr &= 0x7f;
+			//outdata(0,sizeof(u0buffer),u0buffer);
+			//outdata(0,sizeof(n_data),n_data);
+			rt_ringbuffer_putchar(&uart_rxTCB,puart0->data_b.rx_data & 0xff);
+			//u0wrptr=0;
 		}
+		rt_sem_release(&shell_rx_semaphore);
 	}
+	rt_interrupt_leave();
 }
 uint8_t uart_getchar (uint8_t id) {
 	uint8_t retval;

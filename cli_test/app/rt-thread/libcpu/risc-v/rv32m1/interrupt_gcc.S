@@ -54,7 +54,7 @@ IRQ_Handler:
     move  s0, sp
 
     /* switch to interrupt stack */
-    la    sp, xISRStackTop
+    la    sp, __freertos_irq_stack_top
 
     /* interrupt handle */
     call  rt_interrupt_enter

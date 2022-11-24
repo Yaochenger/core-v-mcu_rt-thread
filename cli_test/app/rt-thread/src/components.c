@@ -186,6 +186,10 @@ void main_thread_entry(void *parameter)
     main();
 #endif
 }
+//
+//ALIGN(8)
+//static rt_uint8_t main_stack[RT_MAIN_THREAD_STACK_SIZE];
+//struct rt_thread main_thread;
 
 void rt_application_init(void)
 {

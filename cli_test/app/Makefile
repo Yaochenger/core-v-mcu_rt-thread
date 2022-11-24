@@ -92,7 +92,6 @@ USER_SRCS += qspi_tests.c
 USER_SRCS += main.c
 
 # rt-thread
-
 USER_SRCS += rt-thread/src/clock.c
 USER_SRCS += rt-thread/src/idle.c
 USER_SRCS += rt-thread/src/ipc.c
@@ -103,11 +102,22 @@ USER_SRCS += rt-thread/src/scheduler.c
 USER_SRCS += rt-thread/src/thread.c
 USER_SRCS += rt-thread/src/timer.c
 USER_SRCS += rt-thread/src/components.c
+USER_SRCS += rt-thread/src/mem.c
+USER_SRCS += rt-thread/src/memheap.c
+USER_SRCS += rt-thread/src/mempool.c
+# ringbuffer
+USER_SRCS += rt-thread/src/ringbuffer.c
+# rt-thread finsh
+USER_SRCS += rt-thread/components/finsh/cmd.c
+USER_SRCS += rt-thread/components/finsh/finsh_port.c
+USER_SRCS += rt-thread/components/finsh/msh.c
+USER_SRCS += rt-thread/components/finsh/shell.c
 # rt-thread port
 USER_SRCS += rt-thread/libcpu/risc-v/rv32m1/interrupt.c
 USER_SRCS += rt-thread/libcpu/risc-v/rv32m1/interrupt_gcc.S
 USER_SRCS += rt-thread/libcpu/risc-v/common/cpuport.c
 USER_SRCS += rt-thread/libcpu/risc-v/common/context_gcc.S
+CV_CPPFLAGS += -I"/home/wangshun/plct_cli/cli_test/cli_test/app/rt-thread/components/finsh"
 CV_CPPFLAGS += -I"/home/wangshun/plct_cli/cli_test/cli_test/app/rt-thread/include"
 CV_CPPFLAGS += -I"/home/wangshun/plct_cli/cli_test/cli_test/app/rt-thread/include/libc"
 CV_CPPFLAGS += -I"/home/wangshun/plct_cli/cli_test/cli_test/app/rt-thread/libcpu/risc-v/common"

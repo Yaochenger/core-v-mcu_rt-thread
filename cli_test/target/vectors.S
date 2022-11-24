@@ -37,7 +37,7 @@ vector_table:
 	j IRQ_Handler //ctxt_handler  // irq 7 mtime or timer
 	j IRQ_Handler
 	j IRQ_Handler
-	j h7// IRQ_Handler
+	j IRQ_Handler// IRQ_Handler
 	j IRQ_Handler // irq 11 Machine (event Fifo)
 	j IRQ_Handler
 	j IRQ_Handler
